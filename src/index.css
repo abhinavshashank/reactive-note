@@ -1,3 +1,35 @@
+/* Set body background color to green */
+body {
+  background-color: #28a745;
+}
+
+/* Set primary color to purple */
+:root {
+  --primary: #6f42c1;
+}
+
+/* Apply primary color to form elements and buttons */
+form,
+button {
+  color: var(--primary);
+}
+
+/* Apply primary color to list items on hover */
+#note-list li:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Adjust form element width on small screens */
+@media (max-width: 576px) {
+  form {
+    width: 100%;
+  }
+  #new-note-text {
+    width: 100%;
+  }
+}
+/* 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +42,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
