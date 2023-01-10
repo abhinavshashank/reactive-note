@@ -60,9 +60,48 @@ const NoteTakingApp = () => {
         ))}
       </ul>
     </div>
+  )
+// Get form and list elements
+const form = document.querySelector('#add-note-form');
+const list = document.querySelector('#note-list');
 
+// Handle form submission
+form.addEventListener('submit', event => {
+  // Prevent form from being submitted
+  event.preventDefault();
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  // Get input text
+  const input = document.querySelector('#new-note-text');
+  const text = input.value.trim();
+
+  // Check if input is not empty
+  if (text) {
+    // Add new list item with delete button
+    const item = document.createElement('li');
+    item.textContent = text;
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    item.appendChild(deleteButton);
+    list.appendChild(item);
+
+    // Clear input field
+    input.value = '';
+  }
+});
+
+// Handle delete button clicks
+list.addEventListener('click', event => {
+  // Check if clicked element is a delete button
+  if (event.target.tagName === 'BUTTON') {
+    // Remove list item from list
+    const item = event.target.parentElement;
+    list.removeChild(item);
+  }
+});
+
+    
+
+// // If you want to start measuring performance in your app, pass a function
+// // to log results (for example: reportWebVitals(console.log))
+// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// reportWebVitals();
